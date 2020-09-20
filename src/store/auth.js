@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-const tmp = () => console.log('tmp');
+const tmp = () => console.log('tmp 2');
 
 export default {
   actions: {
