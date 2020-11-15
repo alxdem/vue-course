@@ -5,7 +5,7 @@
 
       <Navbar @clickHandler="isNavbarOpen = !isNavbarOpen"/>
 
-      <Sidebar v-model="isNavbarOpen"/>
+      <Sidebar v-model="isNavbarOpen" :key="locale"/>
 
       <main class="app-content" :class="{full: !isNavbarOpen}">
         <div class="app-page">
@@ -46,9 +46,15 @@ export default {
   computed: {
     error() {
       return this.$store.getters.error;
+    },
+    locale() {
+      return this.$store.getters.info.locale;
     }
   },
   watch: {
+    // locale() {
+    //   console.log('Locsle changed');
+    // },
     error(fbError) {
       this.$error(messages[fbError.code] || 'Что-то пошло не так')
     }
